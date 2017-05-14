@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @doctor.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @doctor.last_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @doctor.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @doctor.phone %>
+</p>
+
+<p>
+  <strong>License:</strong>
+  <%= @doctor.license %>
+</p>
+
+
+<strong>  patients List</strong>
+<p>
+<table class="table table-condensed">
+  <tr >
+    <td>first_name</td>
+    <td>last_name</td>
+    <td>phone</td>
+    <td>email</td>
+  </tr>
+
+<% @doctor.patients.each do |x|%>
+<tr>
+<td ><%= x.first_name%></td>
+<td><%= x.last_name%></td>
+<td><%= x.phone%></td>
+<td ><%= x.email%></td>
+</tr>
+<% end %>
+</table>
+</p>
+
+
+<%= link_to 'Edit', edit_doctor_path(@doctor) %> |
+<%= link_to 'Back', doctors_path %>

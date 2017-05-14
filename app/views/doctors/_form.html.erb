@@ -1,0 +1,39 @@
+
+<%= form_for(@doctor) do |f| %>
+  <% if @doctor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@doctor.errors.count, "error") %> prohibited this doctor from being saved:</h2>
+
+      <ul>
+      <% @doctor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name,class:"form-control",placeholder:"first name", required:true  %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name,class:"form-control",placeholder:"last name", required:true  %>
+  </div>
+  <div class="field">
+    <%= f.label :email, placeholder:"Email" %><br>
+    <%= f.text_field :email,class:"form-control",placeholder:"Email", required:true  %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone,class:"form-control",placeholder:"phone", required:true  %>
+  </div>
+  <div class="field">
+    <%= f.label :license %><br>
+    <%= f.text_field :license,class:"form-control",placeholder:"license" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "create new doctor", class:"btn btn-info"%>
+  </div>
+  
+<% end %>

@@ -1,0 +1,41 @@
+<%= form_for(@patient) do |f| %>
+  <% if @patient.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
+
+      <ul>
+      <% @patient.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name ,class:"form-control",placeholder:"first name" , required:true  %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name,class:"form-control",placeholder:"last name", required:true  %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email,class:"form-control",placeholder:"Email", required:true  %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone,class:"form-control",placeholder:"phone" , required:true %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.check_box :status %>
+  </div>
+  <div class="field">
+    <%= f.label :doctor_id %><br>
+    <%= f.number_field :doctor_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit "create new patient", class:"btn btn-info"%>
+  </div>
+<% end %>
